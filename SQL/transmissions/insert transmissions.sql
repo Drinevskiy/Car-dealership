@@ -1,0 +1,1 @@
+INSERT INTO transmissions (transmission_name) VALUES ('Механическая'), ('Автоматическая'), ('Роботизированная'), ('Вариативная');

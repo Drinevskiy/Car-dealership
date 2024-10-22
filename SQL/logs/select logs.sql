@@ -1,0 +1,1 @@
+SELECT log_id, user_id, text, time FROM logs;

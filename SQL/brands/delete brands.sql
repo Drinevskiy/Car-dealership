@@ -1,0 +1,1 @@
+DELETE FROM brands WHERE brand_name = 'Audi';

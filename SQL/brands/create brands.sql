@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS brands(
+	brand_id SERIAL PRIMARY KEY,
+	brand_name VARCHAR(50) NOT NULL UNIQUE
+);

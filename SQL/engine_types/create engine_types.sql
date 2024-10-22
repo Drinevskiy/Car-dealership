@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS engine_types(
+	engine_id SERIAL PRIMARY KEY,
+	engine_name VARCHAR(30) NOT NULL UNIQUE
+);

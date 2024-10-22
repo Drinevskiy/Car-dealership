@@ -1,0 +1,1 @@
+DELETE FROM transmissions WHERE transmission_id > 4;

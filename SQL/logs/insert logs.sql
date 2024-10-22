@@ -1,0 +1,1 @@
+INSERT INTO logs (user_id, text) VALUES (5, 'Выполнен выход');

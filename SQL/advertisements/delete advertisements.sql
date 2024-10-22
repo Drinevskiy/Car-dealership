@@ -1,0 +1,1 @@
+DELETE FROM advertisements WHERE user_id=1;

@@ -1,0 +1,1676 @@
+-- INSERT INTO cars (model_id, transmission_id, engine_id, price, manufacture_date) VALUES (2, 1, 3, 4351.23, '2021-12-31');
+
+CREATE TEMP TABLE temp_variables (max_range INTEGER, min_range INTEGER, max_date DATE, min_date DATE);
+INSERT INTO temp_variables (max_range, min_range, max_date, min_date) VALUES (150000, 10000, CURRENT_DATE, '2014-01-01');
+
+-- INSERT INTO cars (model_id, transmission_id, engine_id, price, manufacture_date) 
+-- VALUES (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Camaro'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- );
+
+-- INSERT INTO cars (model_id, transmission_id, engine_id, price, manufacture_date) 
+-- VALUES 
+-- -- CAMARO
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Camaro'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Camaro'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- COBALT
+
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Cobalt'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Cobalt'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(пропан-бутан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Cobalt'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(пропан-бутан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Corvette
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Corvette'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Corvette'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Lacetti
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Lacetti'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Lacetti'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Lacetti'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(пропан-бутан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Malibu
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Malibu'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Malibu'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Вариатор'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Malibu'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(гибрид)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Malibu'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Вариатор'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Niva
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Niva'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Niva'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(пропан-бутан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Niva'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Berlingo
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Berlingo'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Berlingo'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Berlingo'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Berlingo'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- С4
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'C4'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'C4'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'C4'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- С5
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'C5'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'C5'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'C5'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Evasion
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Evasion'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Evasion'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Xantia
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Xantia'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Xantia'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Xantia'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Xsara
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Xsara'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Xsara'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- CT4
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'CT4'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Eldorado
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Eldorado'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Eldorado'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Escalade
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Escalade'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Escalade'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(пропан-бутан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Escalade'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(гибрид)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- STS
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'STS'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'STS'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(метан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Seville
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Seville'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- XT5
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'XT5'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'XT5'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(гибрид)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Avenger
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Avenger'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(гибрид)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Avenger'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(пропан-бутан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Avenger'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Dart
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Dart'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Dart'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Hornet
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Hornet'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Hornet'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Magnum
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Magnum'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Magnum'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(пропан-бутан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Magnum'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(метан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Stratus
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Stratus'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(пропан-бутан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Stratus'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Challenger
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Challenger'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Challenger'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(гибрид)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Cougar
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Cougar'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель(гибрид)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Cougar'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(гибрид)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Cougar'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Edge
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Edge'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Edge'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Escape
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Escape'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Escape'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(пропан-бутан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Escape'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(гибрид)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Escort
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Escort'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Escort'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель(гибрид)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Escort'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Fiesta
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Fiesta'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Fiesta'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Fiesta'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Focus
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Focus'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Focus'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Focus'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Focus'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Atlas
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Atlas'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Atlas'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Boyue 
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Boyue'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Monjaro 
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Monjaro'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Monjaro'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Galaxy E8
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Galaxy E8'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Электро'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Galaxy E8'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Электро'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Emgrand
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Emgrand'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Emgrand'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Вариатор'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Emgrand'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Coolray
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Coolray'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Coolray'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- );
+
+-- INSERT INTO cars (model_id, transmission_id, engine_id, price, manufacture_date) 
+-- VALUES 
+-- -- M3
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'M3'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'M3'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'M3'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- M5
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'M5'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'M5'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- X3
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'X3'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'X3'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'X3'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель(гибрид)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- X5
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'X5'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'X5'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'X5'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(метан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- X7
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'X7'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'X7'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- 911
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE '911'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE '911'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Carrera
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Carrera'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Carrera'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Panamera
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Panamera'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Panamera'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(гибрид)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Cayenne
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Cayenne'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Cayenne'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(гибрид)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Cayenne'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Taycan
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Taycan'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Электро'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Taycan'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Электро'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Taycan'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Электро'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- AMG GT
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'AMG GT'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- C-класс W206
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'C-класс W206'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'C-класс W206'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- A-класс W177
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'A-класс W177'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'A-класс W177'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Vaneo
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Vaneo'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Vaneo'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Vaneo'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- G-класс W463
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'G-класс W463'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Passat
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Passat'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Passat'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Passat'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Passat'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Passat'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(метан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Passat'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(метан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Jetta
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Jetta'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(метан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Jetta'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Jetta'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Jetta'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Polo
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Polo'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Polo'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Polo'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Sharan
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Sharan'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Sharan'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Автомат'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Sharan'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(пропан-бутан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Sharan'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- -- Touran
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Touran'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Touran'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Дизель'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Touran'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Touran'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Робот'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин(метан)'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- ),
+-- (
+-- 	(SELECT model_id FROM models WHERE model_name LIKE 'Touran'), 
+-- 	(SELECT transmission_id FROM transmissions WHERE transmission_name LIKE 'Механика'), 
+-- 	(SELECT engine_id FROM engine_types WHERE engine_name LIKE 'Бензин'), 
+-- 	(SELECT (FLOOR(RANDOM() * ((SELECT max_range FROM temp_variables) - 
+-- 							 (SELECT min_range FROM temp_variables) + 1)) 	
+-- 							 + (SELECT min_range FROM temp_variables))::NUMERIC)::MONEY, 
+-- 	(SELECT ((SELECT min_date FROM temp_variables) + 
+-- 			(RANDOM() * 
+-- 			((SELECT max_date FROM temp_variables) - (SELECT min_date FROM temp_variables)) * INTERVAL '1 day')))
+-- )
+-- ;

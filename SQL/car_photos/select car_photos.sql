@@ -1,0 +1,1 @@
+SELECT photo_id, car_id, photo_path FROM car_photos;

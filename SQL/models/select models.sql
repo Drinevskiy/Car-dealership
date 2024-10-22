@@ -1,0 +1,1 @@
+SELECT model_id, brand_name, model_name FROM models NATURAL JOIN brands;
