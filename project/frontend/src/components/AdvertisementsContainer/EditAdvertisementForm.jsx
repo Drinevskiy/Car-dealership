@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Container } from 'react-bootstrap';
+import { Form, Button, Container, Spinner } from 'react-bootstrap';
 import axios from "../../utils/axios.js";
+import { useParams } from 'react-router-dom';
 import { useAuth } from '../../utils/AuthContext';
 
-export const AddAdvertisementForm = () => {
+export const EditAdvertisementForm = () => {
+    const { id } = useParams(); // Получаем ID из URL
+    const [advertisement, setAdvertisement] = useState(null);
     const [formData, setFormData] = useState({
         brand_id: '',
         model_id: '',
@@ -22,6 +25,29 @@ export const AddAdvertisementForm = () => {
     const { token } = useAuth();
 
     useEffect(() => {
+        const fetchAdvertisement = async () => {
+            try {
+                const response = await axios.get(`/advertisements/${id}`);
+                setAdvertisement(response.data);
+                setFormData({
+                    brand_id: response.data.brand_id || '',
+                    model_id: response.data.model_id || '',
+                    transmission_id: response.data.transmission_id || '',
+                    engine_id: response.data.engine_id || '',
+                    description: response.data.description || '',
+                    price: response.data.price || '',
+                    manufacture_date: response.data.manufacture_date ? response.data.manufacture_date.slice(0, 10) : '',
+                    files: [],
+                });
+            } catch (error) {
+                console.error('Ошибка при загрузке объявления:', error);
+            }
+        };
+
+        fetchAdvertisement();
+    }, [id]);
+
+    useEffect(() => {
         const fetchData = async () => {
             try {
                 const brandsResponse = await axios.get('/brands');
@@ -37,21 +63,19 @@ export const AddAdvertisementForm = () => {
         fetchData();
     }, []);
 
-    const handleBrandChange = async (e) => {
-        const selectedBrandId = e.target.value;
-        setFormData({ ...formData, brand_id: selectedBrandId, model_id: '' }); // Сбрасываем модель при выборе нового бренда
-
-        if (selectedBrandId) {
-            try {
-                const modelsResponse = await axios.get(`/models?brandId=${selectedBrandId}`);
-                setModels(modelsResponse.data);
-            } catch (error) {
-                console.error('Ошибка при загрузке моделей:', error);
+    useEffect(() => {
+        const fetchModels = async () => {
+            if (formData.brand_id) {
+                try {
+                    const modelsResponse = await axios.get(`/models?brandId=${formData.brand_id}`);
+                    setModels(modelsResponse.data);
+                } catch (error) {
+                    console.error('Ошибка при загрузке моделей:', error);
+                }
             }
-        } else {
-            setModels([]); // Сбрасываем модели, если бренд не выбран
-        }
-    };
+        };
+        fetchModels();
+    }, [formData.brand_id]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -59,47 +83,56 @@ export const AddAdvertisementForm = () => {
     };
 
     const handleFileChange = (e) => {
-        const files = Array.from(e.target.files); // Преобразуем FileList в массив
-        setFormData({ ...formData, files }); // Сохраняем файлы в состоянии
+        const files = Array.from(e.target.files);
+        setFormData({ ...formData, files });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // formData.user_id = 10;
-            const response = await axios.post('/advertisements', formData, {
+            const priceInNumber = convertPriceFormat(formData.price);
+            const updatedData = {
+                ...formData,
+                price: priceInNumber,
+            };
+            console.log(updatedData);
+            const response = await axios.patch(`/advertisements/${advertisement.advertisement_id}`, updatedData, {
                 headers: {
-                  Authorization: `Bearer ${token}`,
+                    Authorization: `Bearer ${token}`,
                 },
             });
-            const carId = response.data.carId;
+
+            const carId = advertisement.car_id;
             if (formData.files.length > 0) {
                 const formDataToSend = new FormData();
-                // formDataToSend.append('car_id', carId); // Добавляем ID объявления, если нужно
-    
-                // Добавляем файлы в FormData
                 formData.files.forEach(file => {
                     formDataToSend.append('files', file);
                 });
-    
-                // Отправляем файлы на сервер
-                console.log("carId", carId);
+
                 await axios.post(`/upload/cars/${carId}`, formDataToSend, {
                     headers: {
-                        'Content-Type': 'multipart/form-data', // Устанавливаем заголовок
+                        'Content-Type': 'multipart/form-data',
                     },
                 });
-    
+
                 console.log('Файлы успешно загружены.');
             }
-    
-            console.log('Машина успешно добавлена:', response.data);
-            // Здесь вы можете добавить логику, например, очистить форму или показать сообщение об успехе
+
+            console.log('Объявление успешно обновлено:', response.data);
         } catch (error) {
             console.error('Ошибка:', error);
-            // Здесь вы можете показать сообщение об ошибке
         }
     };
+
+    const convertPriceFormat = (priceString) => {
+        const cleanedString = priceString.replace(/Br/g, '').replace(/\s/g, '');
+        const formattedString = cleanedString.replace(',', '.');
+        return parseFloat(formattedString);
+    };
+
+    if (!advertisement) {
+        return <Spinner animation="border" />;
+    }
 
     return (
         <Container className='my-3'>
@@ -110,7 +143,7 @@ export const AddAdvertisementForm = () => {
                         as="select"
                         name="brand_id"
                         value={formData.brand_id}
-                        onChange={handleBrandChange}
+                        onChange={handleChange}
                         required
                     >
                         <option value="">Выберите бренд</option>
@@ -195,7 +228,7 @@ export const AddAdvertisementForm = () => {
                         type="number"
                         placeholder="Введите цену"
                         name="price"
-                        value={formData.price}
+                        value={convertPriceFormat(formData.price)}
                         onChange={handleChange}
                         required
                     />
@@ -223,7 +256,7 @@ export const AddAdvertisementForm = () => {
 
                 <div className='text-center'>
                     <Button variant="primary" type="submit" className='my-3'>
-                        Добавить машину
+                        Сохранить изменения
                     </Button>
                 </div>
             </Form>

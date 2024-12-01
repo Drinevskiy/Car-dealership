@@ -1,0 +1,19 @@
+.notFound{
+    text-align: center;
+    margin: 40px;
+}
+
+.notFound img{
+    margin-bottom: 30px;
+    width: 350px;
+    height: auto;
+}
+
+.notFound a{
+    color:rgb(28, 231, 231);
+    text-decoration: none;
+}
+
+.notFound a:hover{
+    color:rgb(14, 130, 208);
+}
