@@ -96,11 +96,6 @@ export const AdvertisementsContainer = () => {
 
     const filteredAdvertisements = advertisements
         .filter(ad => {
-          console.log(ad);
-          console.log(searchBrand);
-          console.log(searchModel);
-          console.log(searchTransmission);
-          console.log(searchEngine);
             const matchesBrand = searchBrand ? ad.brand_name === searchBrand : true;
             const matchesModel = searchModel ? ad.model_name === searchModel : true;
             const matchesTransmission = searchTransmission ? ad.transmission_name === searchTransmission : true;

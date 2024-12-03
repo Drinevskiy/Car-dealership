@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Container, Spinner } from 'react-bootstrap';
 import axios from "../../utils/axios.js";
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import { useAuth } from '../../utils/AuthContext';
 
 export const EditAdvertisementForm = () => {
@@ -22,7 +22,10 @@ export const EditAdvertisementForm = () => {
     const [models, setModels] = useState([]);
     const [transmissions, setTransmissions] = useState([]);
     const [engines, setEngines] = useState([]);
-    const { token } = useAuth();
+    const [isUser, setIsUser] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+    const [checkUserCompleted, setCheckUserCompleted] = useState(false);
+    const { token, isAdmin } = useAuth();
 
     useEffect(() => {
         const fetchAdvertisement = async () => {
@@ -77,6 +80,31 @@ export const EditAdvertisementForm = () => {
         fetchModels();
     }, [formData.brand_id]);
 
+    useEffect(() => {
+        const checkUser = async () => {
+            try{
+            const response = await axios.get(`/check-advertisement/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+                setIsUser(response.data.isCorrect); // исправлено: доступ к данным из ответа
+            } catch(error) { // исправлено: .error на .catch
+                console.error('Ошибка при проверке пользователя:', error);
+                setIsUser(false);
+            } finally {
+                setIsLoading(false);
+                setCheckUserCompleted(true); // Устанавливаем, что проверка завершена
+            };
+        };
+        if (token && advertisement) { // Проверяем только если есть токен и объявление загружено
+            checkUser();
+        } else {
+            setCheckUserCompleted(true); // Если нет токена или объявления, устанавливаем завершение
+        }
+    }, [token, advertisement]); // Зависимость от token
+
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -117,7 +145,7 @@ export const EditAdvertisementForm = () => {
 
                 console.log('Файлы успешно загружены.');
             }
-
+            window.history.back();
             console.log('Объявление успешно обновлено:', response.data);
         } catch (error) {
             console.error('Ошибка:', error);
@@ -130,9 +158,16 @@ export const EditAdvertisementForm = () => {
         return parseFloat(formattedString);
     };
 
-    if (!advertisement) {
+    
+
+    if (isLoading) {
         return <Spinner animation="border" />;
     }
+
+    if (checkUserCompleted && !isUser && !isAdmin) {
+        return <Navigate to='/' />;
+    }
+    
 
     return (
         <Container className='my-3'>

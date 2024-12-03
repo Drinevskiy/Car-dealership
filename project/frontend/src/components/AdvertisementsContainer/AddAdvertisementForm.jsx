@@ -89,7 +89,7 @@ export const AddAdvertisementForm = () => {
                         'Content-Type': 'multipart/form-data', // Устанавливаем заголовок
                     },
                 });
-    
+                window.history.back();
                 console.log('Файлы успешно загружены.');
             }
     

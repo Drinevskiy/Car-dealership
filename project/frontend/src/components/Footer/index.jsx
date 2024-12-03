@@ -15,7 +15,7 @@ export const Footer = () => {
               Телефон: +375 (44) 891-12-34
             </p>
           </Col>
-          <Col className="text-center">
+          {/* <Col className="text-center">
             <h5>Навигация</h5>
             <p>
               <a href="#home">Главная</a><br />
@@ -23,7 +23,7 @@ export const Footer = () => {
               <a href="#pricing">Цены</a><br />
               <a href="#about">О нас</a>
             </p>
-          </Col>
+          </Col> */}
           <Col className="text-center">
             <h5>Социальные сети</h5>
             <p>

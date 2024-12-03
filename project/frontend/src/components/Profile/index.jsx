@@ -158,6 +158,17 @@ export const Profile = () => {
         return <Navigate to='/login'/>
       }
 
+    if(userData.is_blocked){
+        return (
+            <Container className="mt-5 d-flex justify-content-center">
+                <Alert variant="danger" style={{ width: '100%', maxWidth: '600px', textAlign: 'center' }}>
+                    <h4>Вы заблокированы!</h4>
+                    <p>Обратитесь в службу поддержки для получения дополнительной информации.</p>
+                </Alert>
+            </Container>
+        );
+    }
+
     return (
         <Container className="mt-5">
             {userData && (
@@ -166,9 +177,15 @@ export const Profile = () => {
                 <Card.Text className="mb-2">
                     <strong>Роль:</strong> {userData.role_name}
                 </Card.Text>
-                <Card.Text className="mb-2">
+                {Object.keys(advertisements).length !== 0 && advertisements[0].average_mark !== null?
+                (<Card.Text className="mb-2">
                     <strong>Средняя оценка:</strong> {advertisements[0].average_mark}/5
+                </Card.Text>) : (
+                    <Card.Text className="mb-2">
+                    <strong>Средняя оценка:</strong> 0/5
                 </Card.Text>
+                )
+}       
                 <Card.Text className="mb-2">
                     <strong>Email:</strong> {userData.email}
                 </Card.Text>
@@ -180,7 +197,8 @@ export const Profile = () => {
             )}
 
             <h3 className="text-center my-3">Мои объявления</h3>
-            <Row xs={1} md={3} className="g-4">
+            {advertisements.length > 0 ?(
+            <Row xs={1} md={3} className="g-4 mb-4">
                 {advertisements.map((ad) => (
                     <Col key={ad.advertisement_id}>
                         <Card>
@@ -231,8 +249,12 @@ export const Profile = () => {
                         </Card>
                     </Col>
                 ))}
-            </Row>
-
+            </Row> ) : (
+                <p className="text-center">Объявлений нет.</p>
+            )}
+            <Button className="d-block mb-4 mx-auto" onClick={() => navigate('/add-advertisement')}>
+                    Добавить объявление
+            </Button>
             <h3 className="my-4 text-center">Отзывы обо мне</h3>
             {currentFeedbacks.length > 0 ? (
                 <ListGroup className="mx-auto" style={{width: "40%"}}>
@@ -244,7 +266,7 @@ export const Profile = () => {
                     ))}
                 </ListGroup>
             ) : (
-                <p>Отзывов нет.</p>
+                <p className="text-center">Отзывов нет.</p>
             )}
 
             {/* Пагинация для отзывов */}

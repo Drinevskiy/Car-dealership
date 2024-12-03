@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../utils/AuthContext';
 import axios from '../../utils/axios';
 
-const logo = '/icons/logo.png'
-const bookmark = '/icons/bookmark.png'
+const logo = '/icons/logo.png';
+const bookmark = '/icons/bookmark.png';
 
 export const Header = () => {
-  const { token, clearToken } = useAuth();
+  const { token, clearToken, isAdmin } = useAuth();
   const navigate = useNavigate();
   const handleLogout = () => {
     if(window.confirm("Вы действительно хотите выйти?")){
@@ -23,7 +23,7 @@ export const Header = () => {
   };
   return (
     <Navbar bg="light" expand="lg">
-      <Container>
+      <Container className="d-flex justify-content-between">
       <Link to="/" style={{textDecoration: "none"}}><Navbar.Brand>
         <img 
               src={logo} 
@@ -33,13 +33,12 @@ export const Header = () => {
         </Navbar.Brand>
       </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mx-auto"> {/* Центрирование с помощью mx-auto */}
-            <Nav.Link href="#home">Главная</Nav.Link>
-            <Nav.Link href="#features">Особенности</Nav.Link>
-            <Nav.Link href="#pricing">Цены</Nav .Link>
-            <Nav.Link href="#about">О нас</Nav.Link>
-          </Nav>
+        <Navbar.Collapse id="basic-navbar-nav" className='d-flex justify-content-between'>
+          {isAdmin ?
+          (<Nav className="mx-auto"> {/* Центрирование с помощью mx-auto */}
+            <Nav.Link onClick={() => navigate('/admin-panel')}>Админ-панель</Nav.Link>
+          </Nav>) : (<div></div>)
+          }
           <Nav>
           {!token ? (
               <>
@@ -47,7 +46,7 @@ export const Header = () => {
                 <Button variant="primary" onClick={() => navigate("/registration")}>Регистрация</Button>
               </>
             ) : (
-              <>
+              <div className='d-flex align-items-center'>
                 <Nav.Link onClick={() => navigate("/bookmarks")} className='me-2'>
                   <img 
                     src={bookmark} 
@@ -57,7 +56,7 @@ export const Header = () => {
                 </Nav.Link>
                 <Button variant="outline-danger" onClick={handleLogout} className='me-2'>Выйти</Button>
                 <Button variant="warning" onClick={() => navigate("/profile")}>Профиль</Button>
-              </>
+              </div>
             )}
             
           </Nav>
